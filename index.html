@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style/style.css">
+
+    <!-- GOOGLE FONT  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+
+
+    <!-- tailwind cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- for tailwind cdn -->
+    <style type="text/tailwindcss">
+      :root {
+        --background: #f1f2f4;
+        --surface: white;
+        --theme-primary: #002c5c;
+        --dashboard-heading: #002c5c;
+        --text-primary: #323b49;
+        --text-secondary: #64748b;
+        --theme-red: #ef4444;
+        --theme-green: #10b981;
+        --theme-blue: #3b82f6;
+      }
+      @theme {
+        --breakpoint-tablet: 36rem; /* 576px */
+        --breakpoint-desktop: 62rem; /* 992px */
+      }
+
+      @theme inline {
+        --color-background: var(--background);
+        --color-surface: var(--surface);
+        --color-theme-primary: var(--theme-primary);
+        --color-dashboard-heading: var(--dashboard-heading);
+        --color-text-primary: var(--text-primary);
+        --color-text-secondary: var(--text-secondary);
+        --color-theme-red: var(--theme-red);
+        --color-theme-green: var(--theme-green);
+        --color-theme-blue: var(--theme-blue);
+      }
+    </style>
+
+
+
+
+    <!-- FAV ICON -->
+    <link rel="icon" type="image/png" href="./jobs.png" />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+</head>
+<body class="bg-background">
+  <!-- DASHBOARD IN HEADER -->
+    <header class="max-w-[1110px] mx-auto space-y-[20px] pt-[3.75rem]">
+      <h1 class="text-theme-primary text-[2rem] font-[700]">Job Application Tracker</h1>
+      <!-- card container  -->
+      <div class="w-full grid grid-cols-3 gap-[1rem]">
+        <!-- card1 -->
+         <div class="space-y-[8px] bg-surface p-[1.25rem] rounded-[.5rem] ">
+          <h5 class="text-text-primary text-[.875rem] font-[500]">Total</h5>
+          <h3 class="text-theme-primary text-[1.5rem] font-[700]">8</h3>
+         </div>
+         
+         <!-- car2 -->
+         <div class="space-y-[8px] bg-surface p-[1.25rem] rounded-[.5rem] ">
+          <h5 class="text-text-primary text-[.875rem] font-[500]">Interview</h5>
+          <h3 class="text-theme-green text-[1.5rem] font-[700]">0</h3>
+         </div>
+
+         <!-- card3 -->
+         <div class="space-y-[8px] bg-surface p-[1.25rem] rounded-[.5rem] ">
+          <h5 class="text-text-primary text-[.875rem] font-[500]">Rejected</h5>
+          <h3 class="text-theme-red text-[1.5rem] font-[700]">0</h3>
+         </div>
+      </div>
+    </header>
+</body>
+</html>
