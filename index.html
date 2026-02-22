@@ -74,7 +74,12 @@
           class="space-y-[8px] bg-surface p-[1.25rem] rounded-[.5rem] theme-border"
         >
           <h5 class="text-text-primary text-[.875rem] font-[500]">Total</h5>
-          <h3 class="text-theme-primary text-[1.5rem] font-[700]">8</h3>
+          <h3
+            id="total-count"
+            class="text-theme-primary text-[1.5rem] font-[700]"
+          >
+            0
+          </h3>
         </div>
 
         <!-- car2 -->
@@ -82,7 +87,12 @@
           class="space-y-[8px] bg-surface p-[1.25rem] rounded-[.5rem] theme-border"
         >
           <h5 class="text-text-primary text-[.875rem] font-[500]">Interview</h5>
-          <h3 class="text-theme-green text-[1.5rem] font-[700]">0</h3>
+          <h3
+            id="interview-count"
+            class="text-theme-green text-[1.5rem] font-[700]"
+          >
+            0
+          </h3>
         </div>
 
         <!-- card3 -->
@@ -90,7 +100,12 @@
           class="space-y-[8px] bg-surface p-[1.25rem] rounded-[.5rem] theme-border"
         >
           <h5 class="text-text-primary text-[.875rem] font-[500]">Rejected</h5>
-          <h3 class="text-theme-red text-[1.5rem] font-[700]">0</h3>
+          <h3
+            id="rejected-count"
+            class="text-theme-red text-[1.5rem] font-[700]"
+          >
+            0
+          </h3>
         </div>
       </div>
     </header>
@@ -108,7 +123,7 @@
           <p class="text-text-secondary text-[1rem] font-[500]">8 jobs</p>
         </div>
         <!-- filter buttons -->
-        <div class="space-x-2">
+        <div id="tab-btn-parent" class="space-x-2">
           <button class="btn active-filter-btn">All</button>
           <button class="btn neutral-filter-btn">Interview</button>
           <button class="btn neutral-filter-btn">Rejected</button>
@@ -116,58 +131,7 @@
       </div>
 
       <!-- job application cards container -->
-      <main class="space-y-[1rem]">
-        <!-- card1 -->
-        <div
-          class="relative bg-surface border border-[#ececec] hover:border-[var(--theme-blue)] transition-all duration-300 ease-in-out rounded-[.5rem] p-[1.5rem]"
-        >
-          <h3
-            class="text-theme-primary text-[1.125rem] font-[600] leading-none mb-[.25rem]"
-          >
-            Mobile First Corp
-          </h3>
-          <p class="text-text-secondary text-[1rem] font-[500] mb-[1.25rem]">
-            React Native Developer
-          </p>
-          <button
-            class="absolute top-6 right-6 rounded-full border-2 border-[#ececec] w-8 h-8 text-text-secondary cursor-pointer"
-          >
-            <i class="fa-regular fa-trash-can"></i>
-          </button>
-          <ul
-            class="list-disc flex gap-6 text-text-secondary text-[.875rem] font-[400] mb-[1.25rem]"
-          >
-            <li class="list-none">Remote</li>
-            <li>Full-time</li>
-            <li>$130,000 - $175,000</li>
-          </ul>
-          <button class="btn apply-status-btn mb-[.5rem]">NOT APPLIED</button>
-          <p class="text-text-primary text-[.875rem] font-[400] mb-[1.25rem]">
-            Build cross-platform mobile applications using React Native. Work on
-            products used by millions of users worldwide.
-          </p>
-          <div class="flex gap-2">
-            <button class="btn interview-action-btn">INTERVIEW</button>
-            <button class="btn rejected-action-btn">REJECTED</button>
-          </div>
-        </div>
-        <!-- empty card -->
-        <div class="bg-surface border border-[#ececec] rounded-[.5rem] h-[25rem] flex items-center justify-center">
-          <div class="flex flex-col items-center ">
-            <div class="w-[6.25rem] h-[6.25rem] object-cover mb-[1.25rem]">
-              <img src="./jobs.png" alt="job document" />
-            </div>
-            <h3
-              class="text-theme-primary text-[1.5rem] font-[600] leading-none mb-[.25rem]"
-            >
-              No jobs available
-            </h3>
-            <p class="text-text-secondary text-[1rem] font-[400]">
-              Check back soon for new job opportunities
-            </p>
-          </div>
-        </div>
-      </main>
+      <main id="job-card-container" class="space-y-[1rem]"></main>
     </section>
   </body>
 </html>
