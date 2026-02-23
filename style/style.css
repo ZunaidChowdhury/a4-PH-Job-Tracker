@@ -97,7 +97,7 @@ html {
     height: 2.25rem;
     background-color: transparent;
     border: 1px solid var(--theme-green);
-    transition: all .3s ease;
+    transition: all .3s ease-in-out;
 }
 
 .interview-action-btn:hover {
@@ -117,6 +117,7 @@ html {
     height: 2.25rem;
     background-color: transparent;
     border: 1px solid var(--theme-red);
+    transition: all .3s ease-in-out;
 }
 
 .rejected-action-btn:hover {

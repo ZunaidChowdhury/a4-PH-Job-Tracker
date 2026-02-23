@@ -100,7 +100,9 @@ function updateDashboard() {
     document.querySelector('#rejected-count').textContent = rejectedJobList.length;
 }
 
-updateDashboard();
+// updateDashboard();
+
+
 
 const jobCardContainer = document.querySelector('#job-card-container');
 jobCardContainer.innerHTML = '';
@@ -140,7 +142,7 @@ function showJobs(tab) {
 }
 
 
-showJobs(currentTab)
+// showJobs(currentTab)
 
 
 function showJob(job) {
@@ -150,8 +152,8 @@ function showJob(job) {
             <div data-job-id="${job.id}" class="relative bg-surface border border-[#ececec] hover:border-[var(--theme-blue)] transition-all duration-300 ease-in-out rounded-[.5rem] p-[1.5rem]">
                     <h3 class="text-theme-primary text-[1.125rem] font-[600] leading-none mb-[.25rem]">${job.title}</h3>
                     <p class="text-text-secondary text-[1rem] font-[500] mb-[1.25rem]">${job.profession}</p>
-                    <button class="absolute top-6 right-6 rounded-full border-2 border-[#ececec] w-8 h-8 text-text-secondary cursor-pointer delete-job">
-                        <i class="fa-regular fa-trash-can delete-job"></i>
+                    <button class="group absolute top-6 right-6 rounded-full border-2 border-[#ececec] w-8 h-8 text-text-secondary transition-all duration-300 hover:border-[#ef4444] cursor-pointer delete-job">
+                        <i class="fa-regular fa-trash-can delete-job transition-all duration-300 group-hover:text-[#ef4444]"></i>
                     </button>
                     <ul class="list-disc flex gap-6 text-text-secondary text-[.875rem] font-[400] mb-[1.25rem]">
                         <li class="list-none">${job.location}</li>
@@ -217,6 +219,7 @@ tabParent.addEventListener('click', (e) => {
 
         // show jobs accordingly
         showJobs(currentTab)
+        showDisplayCount();
     }
 
     if (e.target.textContent.toLowerCase() === 'interview') {
@@ -237,6 +240,7 @@ tabParent.addEventListener('click', (e) => {
 
         // show jobs accordingly
         showJobs(currentTab)
+        showDisplayCount();
     }
 
     if (e.target.textContent.toLowerCase() === 'rejected') {
@@ -257,7 +261,9 @@ tabParent.addEventListener('click', (e) => {
 
         // show jobs accordingly
         showJobs(currentTab)
+        showDisplayCount();
     }
+
 });
 
 
@@ -288,12 +294,11 @@ function addListenerToJobCardContainer() {
                 }
 
                 interviewJobList.push(job);
-                showJobs(currentTab);
+                // showJobs(currentTab);
 
                 rejectedJobList = rejectedJobList.filter(job => job.id !== jobId);
 
-                updateDashboard();
-                showJobs(currentTab);
+                updateUI();
             }
         }
         if (e.target.textContent.toLowerCase() === 'rejected') {
@@ -321,8 +326,7 @@ function addListenerToJobCardContainer() {
 
                 interviewJobList = interviewJobList.filter(job => job.id !== jobId);
 
-                updateDashboard();
-                showJobs(currentTab);
+                updateUI();
             }
 
 
@@ -330,9 +334,61 @@ function addListenerToJobCardContainer() {
 
         if (e.target.classList.contains('delete-job')) {
             console.log('delete btn clicked');
+
+            const jobId = parseInt(e.target.closest('.relative').dataset.jobId);
+
+            if (currentTab === 'all') {
+                rejectedJobList = rejectedJobList.filter(job => job.id !== jobId);
+                interviewJobList = interviewJobList.filter(job => job.id !== jobId);
+                allJobList = allJobList.filter(job => job.id !== jobId);
+                updateUI();
+            }
+
+            if (currentTab === 'interview') {
+                interviewJobList = interviewJobList.filter(job => job.id !== jobId);
+                updateUI();
+            }
+
+            if (currentTab === 'rejected') {
+                rejectedJobList = rejectedJobList.filter(job => job.id !== jobId);
+                updateUI();
+            }
+
+
+
+
         }
 
     })
 };
 
 addListenerToJobCardContainer();
+
+function updateUI() {
+    showJobs(currentTab);
+    updateDashboard();
+    showDisplayCount()
+}
+
+function showDisplayCount() {
+    const displayCount = document.querySelector('#display-count');
+
+    console.log(displayCount);
+
+
+    // all, interview, rejected
+    if (currentTab === 'all') {
+        displayCount.textContent = allJobList.length + ' jobs';
+        console.log('tab all');
+
+    } else if (currentTab === 'interview') {
+        displayCount.textContent = interviewJobList.length + ' of ' + allJobList.length + ' jobs';
+        console.log('tab interview');
+    } else if (currentTab === 'rejected') {
+        displayCount.textContent = rejectedJobList.length + ' of ' + allJobList.length + ' jobs';
+        console.log('tab rejected');
+    }
+
+}
+
+updateUI();
