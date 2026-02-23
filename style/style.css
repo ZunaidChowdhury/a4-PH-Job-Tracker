@@ -48,11 +48,22 @@ html {
 .active-filter-btn {
     color: white;
     background-color: var(--theme-blue);
+    transition: all .3s ease-in-out;
+}
+
+.active-filter-btn:hover {
+    background-color: #1f74fd;
 }
 
 .neutral-filter-btn {
     color: var(--text-secondary);
     background-color: var(--surface);
+    transition: all .3s ease-in-out;
+}
+
+.neutral-filter-btn:hover {
+    color: white;
+    background-color: #1f74fd;
 }
 
 .theme-border {

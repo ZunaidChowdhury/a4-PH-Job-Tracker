@@ -149,7 +149,7 @@ function showJob(job) {
 
 
     jobCardContainer.innerHTML = jobCardContainer.innerHTML + `
-            <div data-job-id="${job.id}" class="relative bg-surface border border-[#ececec] hover:border-[var(--theme-blue)] transition-all duration-300 ease-in-out rounded-[.5rem] px-[1rem] py-[2rem] tablet:px-[1.5rem] tablet:py-[1.5rem]">
+            <div data-job-id="${job.id}" class="relative bg-surface ${job.status === 'Interview' ? 'border-l-6 border-l-[var(--theme-green)]' : job.status === 'Rejected' ? 'border-l-6 border-l-[var(--theme-red)]' : 'border-l-6 border-l-[#ececec]'} border border-[#ececec] hover:border-[var(--theme-blue)] transition-all duration-300 ease-in-out rounded-[.5rem] px-[1rem] py-[2rem] tablet:px-[1.5rem] tablet:py-[1.5rem]">
                     <h3 class="text-theme-primary text-[1.125rem] font-[600] leading-none mb-[.25rem]">${job.title}</h3>
                     <p class="text-text-secondary text-[1rem] font-[500] mb-[1.25rem]">${job.profession}</p>
                     <button class="group absolute top-6 right-2 tablet:right-6 rounded-full border-2 border-[#ececec] w-8 h-8 text-text-secondary transition-all duration-300 hover:border-[#ef4444] cursor-pointer delete-job">
@@ -392,3 +392,20 @@ function showDisplayCount() {
 }
 
 updateUI();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
