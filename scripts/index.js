@@ -149,18 +149,18 @@ function showJob(job) {
 
 
     jobCardContainer.innerHTML = jobCardContainer.innerHTML + `
-            <div data-job-id="${job.id}" class="relative bg-surface border border-[#ececec] hover:border-[var(--theme-blue)] transition-all duration-300 ease-in-out rounded-[.5rem] p-[1.5rem]">
+            <div data-job-id="${job.id}" class="relative bg-surface border border-[#ececec] hover:border-[var(--theme-blue)] transition-all duration-300 ease-in-out rounded-[.5rem] px-[1rem] py-[2rem] tablet:px-[1.5rem] tablet:py-[1.5rem]">
                     <h3 class="text-theme-primary text-[1.125rem] font-[600] leading-none mb-[.25rem]">${job.title}</h3>
                     <p class="text-text-secondary text-[1rem] font-[500] mb-[1.25rem]">${job.profession}</p>
-                    <button class="group absolute top-6 right-6 rounded-full border-2 border-[#ececec] w-8 h-8 text-text-secondary transition-all duration-300 hover:border-[#ef4444] cursor-pointer delete-job">
+                    <button class="group absolute top-6 right-2 tablet:right-6 rounded-full border-2 border-[#ececec] w-8 h-8 text-text-secondary transition-all duration-300 hover:border-[#ef4444] cursor-pointer delete-job">
                         <i class="fa-regular fa-trash-can delete-job transition-all duration-300 group-hover:text-[#ef4444]"></i>
                     </button>
-                    <ul class="list-disc flex gap-6 text-text-secondary text-[.875rem] font-[400] mb-[1.25rem]">
-                        <li class="list-none">${job.location}</li>
-                        <li>${job.time}</li>
-                        <li>${job.salary}</li>
+                    <ul class="list-disc flex flex-col tablet:flex-row gap-2 tablet:gap-6 text-text-secondary text-[.875rem] font-[400] mb-[1.25rem]">
+                        <li class="ml-4 tablet:ml-0 tablet:list-none">${job.location}</li>
+                        <li class="ml-4 sm:ml-0">${job.time}</li>
+                        <li class="ml-4 sm:ml-0">${job.salary}</li>
                     </ul>
-                    <button class="btn apply-status-btn mb-[.5rem] ${job.status === 'Interview' ? 'apply-status-interview' : job.status === 'Rejected' ? 'apply-status-rejected' : ''}">${job.status}</button>
+                    <button class="btn apply-status-btn mb-[1rem] tablet:mb-[.5rem] ${job.status === 'Interview' ? 'apply-status-interview' : job.status === 'Rejected' ? 'apply-status-rejected' : ''}">${job.status}</button>
                     <p class="text-text-primary text-[.875rem] font-[400] mb-[1.25rem]">${job.description}</p>
                     <div class="flex gap-2">
                         <button class="btn interview-action-btn">INTERVIEW</button>
@@ -180,11 +180,11 @@ function showEmptyCard() {
       <img src="./jobs.png" alt="job document" />
     </div>
     <h3
-      class="text-theme-primary text-[1.5rem] font-[600] leading-none mb-[.25rem]"
+      class="text-theme-primary text-center text-[1.5rem] font-[600] leading-none mb-[.25rem]"
     >
       No jobs available
     </h3>
-    <p class="text-text-secondary text-[1rem] font-[400]">
+    <p class="text-text-secondary text-center text-[1rem] font-[400]">
       Check back soon for new job opportunities
     </p>
   </div>
